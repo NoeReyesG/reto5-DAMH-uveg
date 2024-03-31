@@ -1,0 +1,30 @@
+
+<section class="container">
+    <h1>Noticias</h1>
+@for(theNew of newsToDisplay; track theNew){
+    <div class="card mb-4">
+        @if(theNew.img){
+            <img src="{{theNew.img}}" class="card-img-top" alt="Friegos de agua">
+        }
+        @else{
+            <img src="../assets/b-n.jpg" class="card-img-top" alt="Breaking news">
+        }
+        <div class="card-body">
+          <div class="d-flex justify-content-between">  
+             <h5 class="card-title border p-2 border-danger">{{theNew.titulo}}</h5>
+             <p class="border p-2 border-danger"> {{theNew.fecha | date}}</p>
+          </div>
+          <p class="card-text col border border-danger p-3">{{theNew.descripcion}}</p>
+          <div>
+            <a href="#" class="btn btn-danger form-control">Eliminar</a>
+          </div>
+        </div>
+      </div>
+}
+
+@empty{
+    <p>No news to show</p>
+}
+
+</section>
+

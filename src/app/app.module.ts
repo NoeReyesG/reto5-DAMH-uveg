@@ -3,17 +3,24 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NewsComponent } from './news/news.component';
+import { AddNewsComponent } from './add-news/add-news.component';
+import { ReactiveFormsModule, UntypedFormGroup } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [
-    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })
