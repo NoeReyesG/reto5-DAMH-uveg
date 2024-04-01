@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SNewsService } from '../services/s-news.service';
 import { Router } from '@angular/router';
+import { FireNewsService } from '../services/fire-news.service';
 
 @Component({
   standalone:true,
@@ -17,6 +18,7 @@ export class AddNewsComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private newsService: SNewsService,
+    private fireNewsService: FireNewsService,
     private router: Router,
   ){
 
@@ -38,6 +40,7 @@ export class AddNewsComponent implements OnInit{
     else{
       const noticia =  this.form.value;
       this.newsService.addNew(noticia);
+      this.fireNewsService.addNew(noticia);
       this.valid = true;
       this.form.reset();
       this.router.navigate(["news"])

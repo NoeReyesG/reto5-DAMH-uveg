@@ -1,7 +1,7 @@
 
 <section class="container">
     <h1>Noticias</h1>
-@for(theNew of newsToDisplay; track theNew){
+@for(theNew of newsToDisplay; track theNew; let i = $index){
     <div class="card mb-4">
         @if(theNew.img){
             <img src="{{theNew.img}}" class="card-img-top" alt="Friegos de agua">
@@ -16,7 +16,7 @@
           </div>
           <p class="card-text col border border-danger p-3">{{theNew.descripcion}}</p>
           <div>
-            <a href="#" class="btn btn-danger form-control">Eliminar</a>
+            <a class="btn btn-danger form-control" (click)="deleteNew(theNew.id)">Eliminar</a>
           </div>
         </div>
       </div>
